@@ -23,7 +23,7 @@ This article describes a general technique for time release encryption using a p
 ```
 4. Publishes the encrypted data to the network viewable by anyone.
 5. Disseminates secret string, the concatenation index, and a release date for each secret string to `N` random nodes. A given node might receive:
-```json
+```js
   {
     sender: <address>,
     key: ss143,
@@ -50,8 +50,10 @@ The probability `P` that this strategy will succeed conforms to the following fo
 ```
 `𝚷ᵢ` and `𝚷ᵣ` are the sequence products `i = 0`, `i < N` and `r = 0`, `r < M` respectively. `pᵢᵣ` refers to the probability that the `r`th node with key `i` will faithfully publish key `i` after the release date.
 
-
-![Figure 1. p = 15%](./p15.png) ![Figure 2. p = 50%](./p50.png)
+<p float="left" align="center">
+  <img src="p15.png" width="45%" alt="Figure 1. p = 15%" />
+  <img src="p50.png" width="45%" alt="Figure 2. p = 50%" />
+</p>
 
 Derivation of `P`. Trivially,
 ```
