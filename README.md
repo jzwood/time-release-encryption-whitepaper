@@ -50,11 +50,8 @@ The probability `P` that this strategy will succeed conforms to the following fo
 ```
 `𝚷ᵢ` and `𝚷ᵣ` are the sequence products `i = 0`, `i < N` and `r = 0`, `r < M` respectively. `pᵢᵣ` refers to the probability that the `r`th node with key `i` will faithfully publish key `i` after the release date.
 
-![Figure 1. p = 15%](./p15.png)
 
-![Figure 2. p = 50%](./p50.png)
-
-Key: white = 0% | black = 100%
+![Figure 1. p = 15%](./p15.png) ![Figure 2. p = 50%](./p50.png)
 
 Derivation of `P`. Trivially,
 ```

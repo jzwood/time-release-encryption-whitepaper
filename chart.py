@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.patches import Rectangle
 
 def prob_of_success(N,M,p):
 	success = 1
@@ -12,12 +13,17 @@ def prob_of_success(N,M,p):
 
 
 dimensions = 20
-prob = 0.15
+prob = 0.5
 heatmap = []
 for n in range(dimensions):
 	heatmap.append([])
 	for m in range(dimensions):
 		heatmap[n].append(prob_of_success(n + 1, m + 1, prob))
+
+# create legend
+handles = [Rectangle((0, 0), 1, 1, color=c, ec="k") for c in ['white', 'black']]
+labels = ['0%', '100%']
+plt.legend(handles, labels)
 
 plt.xlim([0, dimensions-1])
 plt.ylim([0, dimensions-1])
