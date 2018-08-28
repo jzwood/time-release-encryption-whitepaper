@@ -15,7 +15,7 @@ This article describes a general technique for time release encryption using a p
 1. Each node publishes their public key to the network.
 
 **SENDER**
-1. Creates `N` secret strings each 256B long. `SECRET_STRINGS = [ss1, ss2, ...]`
+1. Creates `N` secret strings each 256B long, `SECRET_STRINGS = [ss1, ss2, ...]`, and publishes the checksum of these secret strings to the network, `SECRET_CHECKSUMS = [sc1, sc2, ...]`.
 2. Hashes the concatenated strings to produce a secret key. `SECRET_KEY = ss1 + ss2 + ...`
 3. Uses this key to symmetrically encrypt some data.
 ```
@@ -36,6 +36,10 @@ If the network transactions occur over a blockchain the sender must encrypt the 
 
 **SOLICITED NODES**
 1. Each node that receives data is requested to store the data until the release date has elapsed before publishing the decrypted contents to the network.
+2. Secret keys that are published in this way are validated via their corresponding public checksums.
+3. Once all secret strings have been published and verified anyone can decrypt the original cipher text using the hash of the concatenated secret strings as the key.
+
+A number of payment strategies exist to incentive the cooperation necessary to successfully execute this TRE scheme. For instance, the first node to publish a verifiable key for each key may receive some payment. Once all keys have been published an verified all nodes who contributed to the decryption could receive a second larger payment. This would encourage nodes to publish their key as soon after the deadline as possible and discourage conspiracy.
 
 ## ANALYSIS
 
